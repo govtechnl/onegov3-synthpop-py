@@ -1,0 +1,23 @@
+# Licentie voor data, documentatie en challengetekst
+
+De documentatie in [`docs/`](docs/), de README-bestanden en de challengetekst in [`CHALLENGE.md`](CHALLENGE.md) vallen onder de [Creative Commons Naamsvermelding 4.0 Internationaal (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/), tenzij een bestand iets anders vermeldt. Naamsvermelding: *GovTechNL, Team Synthetische Data van DUO en bijdragers*.
+
+## De dataset
+
+[`data/Synthetic_Homicide.csv`](data/Synthetic_Homicide.csv) is gebaseerd op:
+
+> Krüsselmann, K., Achterberg, J., Haas, M., Spruit, M. & Liem, M. (2024). *Synthetic Dutch Homicide Monitor* [Data set]. Universiteit Leiden/LUMC. https://doi.org/10.5281/zenodo.13378063
+
+Die dataset valt onder CC BY 4.0. Het Team Synthetische Data van DUO heeft er voor deze hackathon kolommen aan toegevoegd, volgens zelf bedachte business rules. De aangepaste dataset staat hier onder dezelfde licentie, CC BY 4.0. Vermeld bij hergebruik de oorspronkelijke bron hierboven en dat DUO kolommen heeft toegevoegd.
+
+## Materiaal van DUO
+
+Het notebook [`notebooks/BusinessRules.ipynb`](notebooks/BusinessRules.ipynb) en de opdrachtbeschrijving in [`docs/duo/`](docs/duo/) zijn gemaakt door het Team Synthetische Data van DUO voor deze challenge.
+
+## Let op
+
+De dataset is synthetisch en de business rules zijn bedacht: ze beschrijven geen echte personen, zaken of werkelijkheid.
+
+Code in deze repository valt onder een eigen licentie: de [EUPL-1.2](LICENSE).
+
+De volledige juridische tekst van CC BY 4.0 staat op <https://creativecommons.org/licenses/by/4.0/legalcode>.

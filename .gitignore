@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Output van scripts/nulmeting.py en scripts/evaluate.py
+output/
+
+# Editors en OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

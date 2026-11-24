@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "onegov3-synthpop-py"
+version = "1.0.0"
+description = "Startrepository voor de OneGov #3-challenge: business rules in synthpop-py"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "EUPL-1.2"
+license-files = ["LICENSE", "LICENSE-DATA"]
+authors = [{ name = "GovTechNL" }]
+dependencies = [
+    "synthpop-py>=1.0.0,<2",
+    "pandas>=3.0.2,<4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+notebook = ["jupyterlab>=4"]
+
+[project.urls]
+"synthpop-py" = "https://github.com/duonl/synthpop-py"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = ["notebooks"]  # het notebook van DUO laten we zoals het is
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["rulecheck", "conftest"]
