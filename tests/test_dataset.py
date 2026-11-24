@@ -9,7 +9,7 @@ def test_shape_and_columns(original):
 
 def test_original_data_follows_every_rule(original):
     report = check_rules(original)
-    assert report["overtredingen"].sum() == 0
+    assert report["violations"].sum() == 0
     assert not any_violation(original).any()
 
 

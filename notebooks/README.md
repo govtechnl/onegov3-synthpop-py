@@ -1,21 +1,21 @@
-# Notebook van DUO
+# DUO's notebook
 
-`BusinessRules.ipynb` is gemaakt door het Team Synthetische Data van DUO. Het laat zien hoe je synthpop-py gebruikt, en dat synthpop-py de business rules nu niet altijd meeneemt: het synthetiseert de dataset en controleert daarna elke regel met een `assert`.
+`BusinessRules.ipynb` was made by DUO's Team Synthetische Data. It shows how to use synthpop-py, and that synthpop-py does not always respect the business rules yet: it synthesises the dataset and then checks each rule with an `assert`. The notebook's comments and output are in Dutch.
 
-## Openen
+## Opening it
 
 ```bash
 pip install -e ".[notebook]"
 jupyter lab notebooks/BusinessRules.ipynb
 ```
 
-Of open het in VS Code. Het notebook leest de dataset uit `../data/`, dus start het vanuit de map `notebooks/` (dat doen JupyterLab en VS Code standaard).
+Or open it in VS Code. The notebook reads the dataset from `../data/`, so start it from the `notebooks/` folder (JupyterLab and VS Code do this by default).
 
-## Goed om te weten
+## Good to know
 
-- Het notebook stopt bij de eerste regel die faalt. Op synthetische data uit synthpop-py 1.0.0 is dat regel 1. Voor een overzicht van alle regels tegelijk: `python -m rulecheck <bestand.csv>`.
-- rulecheck meet precies hetzelfde als dit notebook. Een test in `tests/test_notebook_parity.py` bewaakt dat.
+- The notebook stops at the first rule that fails. On synthetic data from synthpop-py 1.0.0 that is rule 1. For an overview of all rules at once: `python -m rulecheck <file.csv>`.
+- rulecheck measures exactly the same as this notebook. A test in `tests/test_notebook_parity.py` guards that.
 
-## Wijziging ten opzichte van het origineel
+## Change compared with the original
 
-Eén regel: het pad naar de dataset (`'Synthetic_Homicide.csv'` werd `'../data/Synthetic_Homicide.csv'`), omdat de dataset in deze repository in `data/` staat. Verder is het notebook ongewijzigd.
+One line: the path to the dataset (`'Synthetic_Homicide.csv'` became `'../data/Synthetic_Homicide.csv'`), because the dataset lives in `data/` in this repository. Otherwise the notebook is unchanged.

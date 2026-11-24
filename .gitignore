@@ -12,10 +12,10 @@ dist/
 # Jupyter
 .ipynb_checkpoints/
 
-# Output van scripts/nulmeting.py en scripts/evaluate.py
+# Output of scripts/baseline.py and scripts/evaluate.py
 output/
 
-# Editors en OS
+# Editors and OS
 .vscode/
 .idea/
 .DS_Store

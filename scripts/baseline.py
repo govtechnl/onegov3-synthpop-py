@@ -1,10 +1,10 @@
-"""Nulmeting: synthesise the DUO dataset with synthpop-py's default settings and
+"""Baseline: synthesise DUO's dataset with synthpop-py's default settings and
 measure how often the business rules are violated.
 
 Usage (from the repository root):
 
-    python scripts/nulmeting.py                 # 50.000 rows, seed 2834727 (as in DUO's notebook)
-    python scripts/nulmeting.py --n 1291        # as many rows as the original
+    python scripts/baseline.py                  # 50,000 rows, seed 2834727 (as in DUO's notebook)
+    python scripts/baseline.py --n 1291         # as many rows as the original
 
 Writes to output/: the synthetic CSV, a JSON with all numbers and the package
 versions, and a Markdown table.
@@ -39,9 +39,9 @@ def versions() -> dict:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Nulmeting met synthpop-py (standaardinstellingen).")
+    parser = argparse.ArgumentParser(description="Baseline with synthpop-py (default settings).")
     parser.add_argument("--data", type=Path, default=ROOT / "data" / "Synthetic_Homicide.csv")
-    parser.add_argument("--n", type=int, default=DEFAULT_N, help="aantal synthetische rijen")
+    parser.add_argument("--n", type=int, default=DEFAULT_N, help="number of synthetic rows")
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
     parser.add_argument("--out", type=Path, default=ROOT / "output")
     args = parser.parse_args(argv)
@@ -54,26 +54,26 @@ def main(argv: list[str] | None = None) -> int:
     seconds = round(time.time() - t0, 1)
 
     args.out.mkdir(parents=True, exist_ok=True)
-    stem = f"nulmeting_n{args.n}_seed{args.seed}"
+    stem = f"baseline_n{args.n}_seed{args.seed}"
     csv_path = args.out / f"{stem}.csv"
     syn.to_csv(csv_path, index=False)
 
-    result = evaluate(orig, syn, label="nulmeting")
+    result = evaluate(orig, syn, label="baseline")
     payload = to_json(result) | {
-        "instellingen": {"n": args.n, "seed": args.seed, "methode": "synthpop-py standaard (CART)"},
-        "seconden_synthese": seconds,
-        "versies": versions(),
-        "bestand": csv_path.name,
+        "settings": {"n": args.n, "seed": args.seed, "method": "synthpop-py defaults (CART)"},
+        "synthesis_seconds": seconds,
+        "versions": versions(),
+        "file": csv_path.name,
     }
     (args.out / f"{stem}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     table = markdown_table([result])
     (args.out / f"{stem}.md").write_text(table, encoding="utf-8")
 
-    print(f"Synthese: {args.n} rijen, seed {args.seed}, {seconds} s")
-    print("Versies: " + ", ".join(f"{k} {v}" for k, v in payload["versies"].items()))
+    print(f"Synthesis: {args.n} rows, seed {args.seed}, {seconds} s")
+    print("Versions: " + ", ".join(f"{k} {v}" for k, v in payload["versions"].items()))
     print()
     print(table)
-    print(f"Weggeschreven naar {args.out}: {stem}.csv, {stem}.json, {stem}.md")
+    print(f"Written to {args.out}: {stem}.csv, {stem}.json, {stem}.md")
     return 0
 
 

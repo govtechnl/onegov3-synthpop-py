@@ -1,25 +1,25 @@
-# Gedragscode
+# Code of conduct
 
-Dit project volgt de [Contributor Covenant, versie 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
+This project adopts the [Contributor Covenant, version 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
 
-## Onze belofte
+## Our pledge
 
-Wij, als deelnemers, bijdragers en organisatoren, beloven dat iedereen zonder intimidatie of lastigvallen kan meedoen, ongeacht leeftijd, lichaamsbouw, zichtbare of onzichtbare beperking, etniciteit, geslachtskenmerken, genderidentiteit en -expressie, ervaring, opleiding, sociaaleconomische status, nationaliteit, uiterlijk, afkomst, religie of seksuele identiteit en oriëntatie.
+We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
-We gedragen ons zo dat we bijdragen aan een open, gastvrije, diverse, inclusieve en gezonde community.
+We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
 
-## Omgaan met data, het onderwerp en sleutels
+## Handling data, the topic and credentials
 
-Voor deze challenge gelden een paar extra afspraken:
+Some extra rules apply to this challenge:
 
-- **Alleen synthetische data.** Zet geen echte persoonsgegevens of echte zaken in deze repository, in issues of op Alkemio. De dataset is synthetisch; houd dat zo.
-- **Zorgvuldig met het onderwerp.** De dataset gaat over moorden. Ga er zorgvuldig mee om, ook in voorbeelden, namen, pitches en demo's. Maak geen grappen over slachtoffers en koppel de data niet aan echte zaken of personen.
-- **Geen sleutels in git.** Zet nooit API-sleutels of tokens in de code, ook niet die van GreenPT. Gebruik omgevingsvariabelen en houd `.env`-bestanden buiten git.
-- **Eerlijk over resultaten.** Laat zien wat je aanpak met de kwaliteit van de data doet. Presenteer geen getallen die je niet hebt gemeten.
-- **Respect voor de mensen die helpen.** Challenge owners en mentoren maken tijd vrij voor de teams. Wat zij tijdens de hackathon zeggen, is geen formeel standpunt van hun organisatie.
+- **Synthetic data only.** Do not put real personal data or real cases in this repository, in issues, or on Alkemio. The dataset is synthetic; keep it that way.
+- **Care with the topic.** The dataset is about homicides. Handle it with care, also in examples, names, pitches and demos. Do not joke about victims, and do not link the data to real cases or people.
+- **No credentials.** Never commit API keys or tokens, including GreenPT credentials. Use environment variables and keep `.env` files out of git.
+- **Honest results.** Show what your approach does to the quality of the data. Do not present numbers you have not measured.
+- **Respect for the people involved.** Challenge owners and mentors give their time to help teams. Their input during the hackathon is not a formal position of their organisation.
 
-## Handhaving
+## Enforcement
 
-Ongewenst gedrag kun je melden bij de organisatie via [hack@govtechnl.nl](mailto:hack@govtechnl.nl) of bij een organisator op locatie. Elke melding wordt snel en zorgvuldig bekeken. De organisatie kan bijdragen verwijderen of deelnemers uitsluiten die zich niet aan deze code houden.
+Instances of unacceptable behaviour may be reported to the organisers at [hack@govtechnl.nl](mailto:hack@govtechnl.nl) or to any organiser on site. All complaints will be reviewed and investigated promptly and fairly. Organisers may remove contributions or exclude participants who violate this code.
 
-De volledige tekst van de Contributor Covenant, met de richtlijnen voor handhaving, staat op <https://www.contributor-covenant.org/version/2/1/code_of_conduct/>.
+For the full text of the Contributor Covenant, including the enforcement guidelines, see <https://www.contributor-covenant.org/version/2/1/code_of_conduct/>.

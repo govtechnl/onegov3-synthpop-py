@@ -126,9 +126,9 @@ def test_rule_6_4_every_required_column(column):
 
 def test_check_rules_report_shape():
     report = check_rules(records({}, {r.AGE_DIFF: 1.0}))
-    assert list(report.columns) == ["regel", "omschrijving", "overtredingen", "percentage"]
-    row = report.set_index("regel").loc["2"]
-    assert row["overtredingen"] == 1
+    assert list(report.columns) == ["rule", "description", "violations", "percentage"]
+    row = report.set_index("rule").loc["2"]
+    assert row["violations"] == 1
     assert row["percentage"] == 50.0
 
 

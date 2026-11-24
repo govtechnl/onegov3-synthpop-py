@@ -1,32 +1,32 @@
-# De business rules
+# The business rules
 
-DUO heeft deze regels zelf bedacht voor de hackathon. **Ze beschrijven niet de werkelijkheid.** De originele dataset voldoet aan alle regels; synthetische data uit synthpop-py 1.0.0 niet (zie [nulmeting.md](nulmeting.md)).
+DUO made up these rules for the hackathon. **They do not describe reality.** The original dataset follows every rule; synthetic data from synthpop-py 1.0.0 does not (see [baseline.md](baseline.md)).
 
-De code in [`src/rulecheck/rules.py`](../src/rulecheck/rules.py) is de precieze definitie. Die volgt het [notebook van DUO](../notebooks/BusinessRules.ipynb), ook in hoe lege waarden meetellen. Een test controleert dat rulecheck en het notebook voor elke rij hetzelfde antwoord geven.
+The code in [`src/rulecheck/rules.py`](../src/rulecheck/rules.py) is the exact definition. It follows [DUO's notebook](../notebooks/BusinessRules.ipynb), including how missing values count. A test checks that rulecheck and the notebook give the same answer for every row.
 
-## Overzicht
+## Overview
 
-| Regel | Omschrijving | Kolommen | Lege waarden |
+| Rule | Description | Columns | Missing values |
 |---|---|---|---|
-| 1 | De geboorteplaats van de hoofdverdachte ligt in het geboorteland, volgens de lijst van DUO | Birthcity of main perpetrator, Birthcountry of main perpetrator | Onbekende plaats: altijd goed. Bekende plaats met onbekend land: overtreding. |
-| 2 | Leeftijdsverschil = \|leeftijd hoofdverdachte - leeftijd slachtoffer\| | Age difference, Age of main perpetrator, Age of victim | Leeg leeftijdsverschil: goed. Ingevuld verschil terwijl een leeftijd ontbreekt: overtreding. |
-| 3.1 | De vorige misdaad van de hoofdverdachte vond niet plaats na de huidige misdaad | Date of previous crime main perpetrator, Date of current crime | Lege datum: goed |
-| 3.2 | De vrijlating voor de huidige misdaad ligt niet vóór de datum van die misdaad | Date of current crime, Date of release from current crime main perpetrator | Lege datum: goed. Dezelfde datum: goed. |
-| 4 | Opgelost: gevangenisstraf maximaal 10 jaar. Onopgelost: straf is leeg. | Years prison sentence main perpetrator, Solved vs unsolved homicide | Lege straf bij een opgeloste zaak: goed |
-| 5 | Een hoofdverdachte jonger dan 18 krijgt maximaal 5 jaar, tenzij die ouder is dan 12 en de relatie '(Step)Parent' of 'Other relative' is | Age of main perpetrator, Years prison sentence main perpetrator, Victim-perpetrator relationship | Lege leeftijd of straf: goed |
-| 6.1 | Onopgeloste zaak: hoofdbewijs is leeg | Main evidence type, Solved vs unsolved homicide | |
-| 6.2 | 'bullets' en 'ballistics' alleen als het wapen 'Firearm' is | Main evidence type, Type of weapon used | Leeg wapen telt niet als vuurwapen: overtreding |
-| 6.3 | Geen 'confession' als de context 'Killing by mentally disturbed person (non-family)' is | Main evidence type, Context of homicide | |
-| 6.4 | 'confession' alleen als alle andere kolommen zijn ingevuld, behalve de datum van de vorige misdaad, de datum van vrijlating en de strafmaat | Main evidence type en 18 andere kolommen | Eén lege verplichte kolom bij 'confession': overtreding |
-| 6.5 | 'DNA', 'fingerprints' en 'witnesses' zijn altijd toegestaan | Main evidence type | Geen beperking, telt niet mee |
+| 1 | The main perpetrator's birth city lies in the birth country, according to DUO's list | Birthcity of main perpetrator, Birthcountry of main perpetrator | Unknown city: always fine. Known city with unknown country: violation. |
+| 2 | Age difference = \|age of main perpetrator - age of victim\| | Age difference, Age of main perpetrator, Age of victim | Empty age difference: fine. A filled-in difference while an age is missing: violation. |
+| 3.1 | The main perpetrator's previous crime did not take place after the current crime | Date of previous crime main perpetrator, Date of current crime | Empty date: fine |
+| 3.2 | The release for the current crime is not before the date of that crime | Date of current crime, Date of release from current crime main perpetrator | Empty date: fine. Same date: fine. |
+| 4 | Solved: prison sentence at most 10 years. Unsolved: the sentence is empty. | Years prison sentence main perpetrator, Solved vs unsolved homicide | Empty sentence for a solved case: fine |
+| 5 | A main perpetrator under 18 gets at most 5 years, unless older than 12 and the relationship is '(Step)Parent' or 'Other relative' | Age of main perpetrator, Years prison sentence main perpetrator, Victim-perpetrator relationship | Empty age or sentence: fine |
+| 6.1 | Unsolved case: the main evidence is empty | Main evidence type, Solved vs unsolved homicide | |
+| 6.2 | 'bullets' and 'ballistics' only if the weapon is 'Firearm' | Main evidence type, Type of weapon used | An empty weapon does not count as a firearm: violation |
+| 6.3 | No 'confession' if the context is 'Killing by mentally disturbed person (non-family)' | Main evidence type, Context of homicide | |
+| 6.4 | 'confession' only if all other columns are filled in, except the date of the previous crime, the release date and the sentence | Main evidence type and 18 other columns | One empty required column with 'confession': violation |
+| 6.5 | 'DNA', 'fingerprints' and 'witnesses' are always allowed | Main evidence type | No constraint, not counted |
 
-Regels 6.2 tot en met 6.4 gelden voor opgeloste zaken. Voor onopgeloste zaken geldt 6.1: daar hoort helemaal geen hoofdbewijs.
+Rules 6.2 to 6.4 apply to solved cases. For unsolved cases rule 6.1 applies: there should be no main evidence at all.
 
-## Kolomvolgorde
+## Column order
 
-synthpop-py synthetiseert kolom voor kolom, standaard in de volgorde van de CSV. Elke kolom wordt voorspeld uit de kolommen die al aan de beurt waren. Een regel kan tijdens het synthetiseren dus pas ingrijpen bij de laatste kolom van de regel: dan zijn de andere kolommen al bekend. Dat bepaalt waar je regels kunt afdwingen, en of je de volgorde (`column_order`) moet aanpassen.
+synthpop-py synthesises column by column, by default in the order of the CSV. Each column is predicted from the columns that came before it. During synthesis, a rule can therefore only act at the last of its columns: that is when the other columns are known. This decides where you can enforce a rule, and whether you need to change the order (`column_order`).
 
-| Nr. | Kolom | Regels |
+| No. | Column | Rules |
 |---:|---|---|
 | 1 | Urban vs rural | 6.4 |
 | 2 | Time of day | 6.4 |
@@ -36,7 +36,7 @@ synthpop-py synthetiseert kolom voor kolom, standaard in de volgorde van de CSV.
 | 6 | Type of weapon used | 6.2, 6.4 |
 | 7 | Context of homicide | 6.3, 6.4 |
 | 8 | Victim-perpetrator relationship | 5, 6.4 |
-| 9 | Solved vs unsolved homicide | 4, 6.1 tot 6.4 |
+| 9 | Solved vs unsolved homicide | 4, 6.1 to 6.4 |
 | 10 | Gender of victim | 6.4 |
 | 11 | Gender of main perpetrator | 6.4 |
 | 12 | Age of victim | 2, 6.4 |
@@ -51,23 +51,23 @@ synthpop-py synthetiseert kolom voor kolom, standaard in de volgorde van de CSV.
 | 21 | Date of release from current crime main perpetrator | **3.2** |
 | 22 | Years prison sentence main perpetrator | **4, 5** |
 
-Vetgedrukt: bij deze kolom zijn in de standaardvolgorde alle andere kolommen van de regel al bekend.
+In bold: in the default order, all other columns of the rule are known at this column.
 
-Twee dingen om op te letten:
+Two things to watch:
 
-- **Regel 6.4 hangt af van kolommen vóór én na 'Main evidence type'.** Pas bij kolom 19 is alles bekend, maar dan zijn 'Main evidence type' (15) en de kolommen 16 tot en met 18 al gekozen. Je kunt de regel opknippen: bij kolom 15 geen 'confession' als een van de kolommen 1 tot en met 14 leeg is, en bij de kolommen 16 tot en met 19 geen lege waarde als het hoofdbewijs 'confession' is. Of je verandert de volgorde.
-- **Bij regel 1 komt de plaats vóór het land.** Het land wordt dus gekozen bij een al bekende plaats, niet andersom. Je kunt de regel bij het land afdwingen of de volgorde omdraaien.
+- **Rule 6.4 depends on columns before and after 'Main evidence type'.** Only at column 19 is everything known, but by then 'Main evidence type' (15) and columns 16 to 18 have already been chosen. You can split the rule: at column 15, no 'confession' if one of columns 1 to 14 is empty, and at columns 16 to 19, no empty value if the main evidence is 'confession'. Or you change the order.
+- **For rule 1, the city comes before the country.** So the country is chosen for a city that is already known, not the other way round. You can enforce the rule at the country, or swap the order.
 
-Een andere volgorde verandert ook de kwaliteit van de synthetische data. Meet dat dus mee.
+A different order also changes the quality of the synthetic data. Measure that too.
 
-## Kanttekeningen bij de regels
+## Notes on the rules
 
-Dingen die we tegenkwamen bij het omzetten van het notebook naar rulecheck. rulecheck volgt steeds het notebook.
+Things we ran into while turning the notebook into rulecheck. rulecheck always follows the notebook.
 
-1. **Regel 2 gebruikt het absolute verschil.** De uitleg in het notebook noemt 'leeftijd_dader - leeftijd_slachtoffer', maar de code rekent met de absolute waarde. Het verschil is dus nooit negatief.
-2. **Regel 5 gebruikt de letterlijke waarden '(Step)Parent' en 'Other relative'.** De opdrachtbeschrijving spreekt van 'stiefouder of ander familielid'. Welke kant de relatie op werkt, staat niet in de data; de regel kijkt alleen naar de waarde in de kolom.
-3. **Regel 6.2 gebruikt kleine letters.** De opdrachtbeschrijving schrijft 'Bullets' en 'Ballistics'; in de data staan 'bullets' en 'ballistics'.
-4. **Regel 6.5 is geen beperking.** Het notebook controleert alleen dat de drie waarden voorkomen. rulecheck telt de regel niet mee.
-5. **Het notebook stopt bij de eerste regel die faalt.** Elke controle eindigt met een `assert`. Op synthetische data uit synthpop-py 1.0.0 stopt het notebook al bij regel 1. Gebruik `python -m rulecheck` voor een overzicht van alle regels tegelijk.
+1. **Rule 2 uses the absolute difference.** The explanation printed by the notebook says 'age perpetrator - age victim', but the code uses the absolute value. The difference is never negative.
+2. **Rule 5 uses the literal values '(Step)Parent' and 'Other relative'.** DUO's assignment description speaks of 'step-parent or other family member'. The data does not say which way the relationship goes; the rule only looks at the value in the column.
+3. **Rule 6.2 uses lower case.** DUO's assignment description writes 'Bullets' and 'Ballistics'; the data has 'bullets' and 'ballistics'.
+4. **Rule 6.5 is not a constraint.** The notebook only checks that the three values occur. rulecheck does not count the rule.
+5. **The notebook stops at the first rule that fails.** Each check ends with an `assert`. On synthetic data from synthpop-py 1.0.0, the notebook already stops at rule 1. Use `python -m rulecheck` for an overview of all rules at once.
 
-Vragen over de regels? Stel ze aan de challenge owners: Cas van Erp en Erina Koomen (synthetische.data@duo.nl).
+Questions about the rules? Ask the challenge owners, Cas van Erp and Erina Koomen ([synthetische.data@duo.nl](mailto:synthetische.data@duo.nl)).

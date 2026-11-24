@@ -59,7 +59,7 @@ def test_same_rows_flagged_as_notebook(dataset, request):
     for rule_id, mask in theirs.items():
         a = ours[rule_id].to_numpy()
         b = pd.Series(mask).fillna(False).astype(bool).to_numpy()
-        assert (a == b).all(), f"regel {rule_id}: {int((a != b).sum())} verschillen"
+        assert (a == b).all(), f"rule {rule_id}: {int((a != b).sum())} differences"
 
 
 def test_sample_exercises_the_rules(synthetic_sample):

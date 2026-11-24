@@ -173,25 +173,25 @@ class Rule:
 
 
 RULES: tuple[Rule, ...] = (
-    Rule("1", "Geboorteplaats ligt in geboorteland",
+    Rule("1", "Birth city lies in birth country",
          (BIRTHCITY_PERP, BIRTHCOUNTRY_PERP), rule_1_birthcity_in_birthcountry),
-    Rule("2", "Leeftijdsverschil klopt met beide leeftijden",
+    Rule("2", "Age difference matches both ages",
          (AGE_DIFF, AGE_PERP, AGE_VICTIM), rule_2_age_difference),
-    Rule("3.1", "Vorige misdaad niet na de huidige",
+    Rule("3.1", "Previous crime not after current crime",
          (DATE_PREVIOUS, DATE_CRIME), rule_3_1_previous_before_current),
-    Rule("3.2", "Vrijlating niet voor de huidige misdaad",
+    Rule("3.2", "Release not before current crime",
          (DATE_CRIME, DATE_RELEASE), rule_3_2_release_after_current),
-    Rule("4", "Maximaal 10 jaar; leeg als onopgelost",
+    Rule("4", "Max 10 years; empty if unsolved",
          (SENTENCE, SOLVED), rule_4_max_sentence),
-    Rule("5", "Minderjarigen maximaal 5 jaar, met uitzondering",
+    Rule("5", "Minors max 5 years, with exception",
          (AGE_PERP, SENTENCE, RELATIONSHIP), rule_5_minors_sentence),
-    Rule("6.1", "Geen bewijs bij onopgeloste zaak",
+    Rule("6.1", "No evidence if unsolved",
          (EVIDENCE, SOLVED), rule_6_1_evidence_empty_if_unsolved),
-    Rule("6.2", "Kogels en ballistiek alleen bij vuurwapen",
+    Rule("6.2", "Bullets/ballistics only with firearm",
          (EVIDENCE, WEAPON), rule_6_2_bullets_only_with_firearm),
-    Rule("6.3", "Geen bekentenis bij ontoerekeningsvatbaarheid",
+    Rule("6.3", "No confession if mentally disturbed",
          (EVIDENCE, CONTEXT), rule_6_3_no_confession_if_mentally_disturbed),
-    Rule("6.4", "Bekentenis alleen bij volledig ingevuld record",
+    Rule("6.4", "Confession only if record complete",
          (EVIDENCE, *CONFESSION_REQUIRED), rule_6_4_confession_requires_complete_record),
 )
 
@@ -211,9 +211,9 @@ def check_rules(df: pd.DataFrame) -> pd.DataFrame:
     for rule in RULES:
         count = int(masks[rule.id].sum())
         rows.append({
-            "regel": rule.id,
-            "omschrijving": rule.name,
-            "overtredingen": count,
+            "rule": rule.id,
+            "description": rule.name,
+            "violations": count,
             "percentage": round(100 * count / n, 2) if n else 0.0,
         })
     return pd.DataFrame(rows)

@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "onegov3-synthpop-py"
 version = "1.0.0"
-description = "Startrepository voor de OneGov #3-challenge: business rules in synthpop-py"
+description = "Starter repository for the OneGov #3 challenge synthpop.py: business rules in synthpop-py"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "EUPL-1.2"
@@ -33,7 +33,7 @@ pythonpath = ["src", "tests"]
 [tool.ruff]
 line-length = 120
 target-version = "py311"
-extend-exclude = ["notebooks"]  # het notebook van DUO laten we zoals het is
+extend-exclude = ["notebooks"]  # DUO's notebook stays as delivered
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "W", "UP", "B"]
