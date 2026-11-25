@@ -15,7 +15,19 @@ A synthetic version of the Dutch Homicide Monitor, about homicides in the Nether
 
 ## What did DUO change?
 
-For the hackathon, DUO added a number of columns following business rules they made up themselves. **Those rules do not describe reality.** The original dataset in this repository breaks no rule at all. See [docs/business-rules.md](../docs/business-rules.md).
+For the hackathon, DUO added seven columns, following business rules they made up themselves:
+
+- Birthcity of main perpetrator
+- Age difference
+- Main evidence type
+- Date of current crime
+- Date of previous crime main perpetrator
+- Date of release from current crime main perpetrator
+- Years prison sentence main perpetrator
+
+DUO also changed 'Age of victim' and 'Age of main perpetrator' so that they contain an exact number, by random sampling within the original range.
+
+**The business rules do not describe reality.** The dataset in this repository breaks no rule at all. See [docs/business-rules.md](../docs/business-rules.md).
 
 ## Columns
 
@@ -51,6 +63,6 @@ The number in brackets for categorical columns is the number of distinct values.
 ## Good to know
 
 - The column order in the file is also the default order in which synthpop-py synthesises. What that means for the rules is in [docs/business-rules.md](../docs/business-rules.md#column-order).
-- Some labels are truncated in the source or end with a comma, such as `Afternoon (12-6` and `Hitting, kicking or other similar physical violence without weapon,`. Leave them as they are: the rules and tests use the values as they appear in the file.
-- The birth cities deliberately include place names that occur in more than one country, such as Harlingen and Napels. The rule follows DUO's list, not real geography.
+- Some labels in the file are truncated or end with a comma, such as `Afternoon (12-6` and `Hitting, kicking or other similar physical violence without weapon,`. Leave them as they are: the rules and tests use the values as they appear in the file.
+- DUO deliberately chose birth cities that really exist, including names that exist both in the Netherlands and abroad, such as Harlingen, Zurich, Napels and Spitsbergen. Such a city can therefore go with more than one birth country. The valid combinations are in DUO's notebook and in `CITY_MAPPING` in [rules.py](../src/rulecheck/rules.py).
 - The dataset is about homicides. Even though it is synthetic, handle it with care, also in examples, pitches and demos.

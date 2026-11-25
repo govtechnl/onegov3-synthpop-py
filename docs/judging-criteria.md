@@ -10,7 +10,7 @@ A submission that fails any Must criterion is not a valid submission, regardless
 |---|---|---|
 | M1 | A working prototype that takes user-defined business rules into account when synthesising with synthpop-py. | A demo or recording: rules go in, synthetic data comes out of synthpop-py |
 | M2 | Per rule, the number of violations without and with the solution, measured on DUO's dataset with rulecheck or DUO's notebook. | The table from `scripts/evaluate.py`, 50,000 rows, seed 2834727 |
-| M3 | Insight into the effect on statistical quality, for example with synthpop-py's S_pMSE score or another metric. | Quality before and after, on datasets of the same size |
+| M3 | Insight into the effect on statistical quality, for example with synthpop-py's S_pMSE score or another metric. | Quality before and after, at the baseline settings (50,000 rows, seed 2834727) |
 | M4 | The solution is open source and includes a short explanation of how to add a rule. | Public repository, linked in Alkemio, under an OSI-approved licence; a README section on adding a rule |
 
 ## ⭐ Should: distinguishing qualities

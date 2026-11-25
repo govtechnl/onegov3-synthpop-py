@@ -2,8 +2,8 @@
 
 Violations come from :mod:`rulecheck.rules`. Quality is measured with the
 pairwise S_pMSE from synthpop-py (``synthpop.utility_metrics.pairwise_spmse``):
-lower is better. S_pMSE depends strongly on the number of synthetic rows, so only
-compare datasets with the same number of rows (and the same original data).
+lower is better. Compare your result with the baseline at the same settings
+(50,000 rows, seed 2834727).
 """
 
 from __future__ import annotations

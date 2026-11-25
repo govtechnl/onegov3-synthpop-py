@@ -46,7 +46,9 @@ def main(argv: list[str] | None = None) -> int:
     out = [markdown_table(results)]
     sizes = {r["rows"] for r in results}
     if len(sizes) > 1:
-        out.append("NOTE: the datasets have different numbers of rows. Only compare S_pMSE at equal sizes.\n")
+        out.append(
+            "NOTE: the datasets have different numbers of rows. Use the baseline settings (50,000 rows) to compare.\n"
+        )
     for other in results[1:]:
         changes = biggest_changes(results[0], other, top=args.top)
         out.append(f"\nColumn pairs whose S_pMSE increased most from {results[0]['label']} to {other['label']}:\n")

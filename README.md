@@ -33,7 +33,7 @@ The full brief is in [CHALLENGE.md](CHALLENGE.md), an English working translatio
 | [docs/judging-criteria.md](docs/judging-criteria.md) | The assessment criteria with IDs, and how judging works |
 | [docs/integrations/greenpt-api.md](docs/integrations/greenpt-api.md) | Optional LLM access through the tech partner GreenPT |
 | [notebooks/BusinessRules.ipynb](notebooks/BusinessRules.ipynb) | DUO's notebook with one check per rule |
-| [src/rulecheck/](src/rulecheck/) | The business rules as Python code, plus an evaluation of rules and quality |
+| [src/rulecheck/](src/rulecheck/) | The business rules as Python code (by GovTechNL, tested against DUO's notebook), plus an evaluation of rules and quality |
 | [scripts/baseline.py](scripts/baseline.py) | Synthesises the dataset with default settings and measures rules and quality |
 | [scripts/evaluate.py](scripts/evaluate.py) | Puts your synthetic data next to the baseline |
 | [tests/](tests/) | Tests, including a check that rulecheck flags exactly the same rows as DUO's notebook |
@@ -94,9 +94,11 @@ masks = violations(df)      # one boolean Series per rule: True is a violation
 
 \* Rows that break the rule, in 50,000 synthetic rows from synthpop-py 1.0.0 with default settings (seed 2834727, as in DUO's notebook). The original dataset breaks no rule at all. Details in [docs/baseline.md](docs/baseline.md); exact definitions in [docs/business-rules.md](docs/business-rules.md).
 
+DUO's notebook is the reference for the rules. rulecheck is tooling by GovTechNL that makes the same checks easier to run: a test checks that it flags exactly the same rows as the notebook.
+
 ## How the jury compares results
 
-The jury wants to see, per rule, the number of violations without and with your solution, and the effect on statistical quality. To make results comparable between teams: generate 50,000 rows with seed 2834727, like the baseline, keep the same 22 columns, and run `scripts/evaluate.py` against the baseline. The script reports violations per rule, a summary of synthpop-py's pairwise S_pMSE (lower is better) and the column pairs whose quality dropped most. S_pMSE depends strongly on the number of rows, so only compare datasets of the same size. Other quality measures are welcome too.
+The jury wants to see, per rule, the number of violations without and with your solution, and the effect on statistical quality. To keep results comparable between teams, use the same settings as the baseline: 50,000 rows, seed 2834727 and the same 22 columns. Then run `scripts/evaluate.py` with the baseline as reference. It reports the violations per rule, a summary of synthpop-py's pairwise S_pMSE (lower is better) and the column pairs whose quality dropped most. Other quality measures are welcome too.
 
 ## Building in synthpop-py
 

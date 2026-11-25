@@ -19,7 +19,7 @@ The licensor cannot revoke these freedoms as long as you follow the license term
 
 > Krüsselmann, K., Achterberg, J., Haas, M., Spruit, M. & Liem, M. (2024). *Synthetic Dutch Homicide Monitor* [Data set]. Leiden University/LUMC. https://doi.org/10.5281/zenodo.13378063
 
-That dataset is released under CC BY 4.0. For this hackathon, DUO's Team Synthetische Data added columns to it, following business rules they made up. The adapted dataset is published here under the same license, CC BY 4.0. When you reuse it, credit the original source above and mention that DUO added columns.
+That dataset is released under CC BY 4.0. For this hackathon, DUO's Team Synthetische Data added seven columns to it, following business rules they made up, and made the two age columns exact; see the [data card](data/README.md). The adapted dataset is published here under the same license, CC BY 4.0. When you reuse it, credit the original source above and mention DUO's changes.
 
 ## Material by DUO
 

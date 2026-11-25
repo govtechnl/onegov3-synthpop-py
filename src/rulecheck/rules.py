@@ -48,7 +48,7 @@ COLUMNS = [
 ]
 
 # Which birth cities are valid for which birth country (from DUO's notebook).
-# Some city names occur in more than one country on purpose: Harlingen, Napels,
+# DUO chose real places on purpose; some names exist in more than one country: Harlingen, Napels,
 # Leuven, Zurich, Spitsbergen, Deurne, Wezel, Bristol, London, Paris, Barcelona.
 CITY_MAPPING: dict[str, set[str]] = {
     "Netherlands": {

@@ -21,7 +21,7 @@ Cas van Erp and Erina Koomen of DUO's Team Synthetische Data are the challenge o
 
 Government organisations hold valuable data, but often may not share it at the level of individuals. Synthetic data offers a way out: artificial data that reproduces the statistical patterns of real data, without a one-to-one relation to real people. DUO ran a pilot with synthetic data from 2022 to 2025 and now structurally provides synthetic datasets to researchers and partners.
 
-For this, the Team Synthetische Data builds synthpop-py: an open source Python package based on the R package synthpop, developed with the consent of, and in cooperation with, its makers. Version 1.0.0 was released on 27 October 2026 under the EUPL 1.2. The package is developed within the PGDI scale-up ticket on synthetic data, in which DUO and UWV coordinate a consortium of government organisations.
+For this, the Team Synthetische Data builds synthpop-py: an open source Python package based on the R package synthpop, developed with the consent of, and in cooperation with, its makers. Version 1.0.0 was released on 27 October 2026 under the EUPL 1.2.
 
 synthpop-py synthesises column by column, by default with CART (decision trees). Each column is predicted from the columns that came before it. This way the package picks up the relations in the data, but not the rules behind them. Business rules are therefore on the synthpop-py roadmap.
 
