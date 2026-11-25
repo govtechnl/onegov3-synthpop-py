@@ -12,7 +12,7 @@ This is the primary flow during the hackathon.
 
 1. Build your solution in a **fork of [duonl/synthpop-py](https://github.com/duonl/synthpop-py)** or in **your own repository**. Own branches on DUO's repository are not possible.
 2. Use this repository to measure your result: `rulecheck`, `scripts/baseline.py` and `scripts/evaluate.py`. See [START_HERE.md](START_HERE.md).
-3. Submit via [Alkemio](https://alkem.io/onegov-hackathon), with a link to your code and your comparison with the baseline.
+3. Submit via [Alkemio](https://alkem.io/onegov-hackathon) before **Thursday 10 December, 14:00**, with a link to your code and your comparison with the baseline. Keep your repository public, with an open source licence. See [EVENT.md](EVENT.md#submission).
 
 Your solution does not go into this repository. Want to offer your work to synthpop-py later? Read [synthpop-py's CONTRIBUTING.md](https://github.com/duonl/synthpop-py/blob/main/CONTRIBUTING.md). Inclusion needs clear requirements and a review by the DUO team.
 
@@ -25,7 +25,7 @@ Found a mistake in the data, rulecheck, the scripts or the documentation? Report
 1. **The rules live in code.** A change to a rule in `src/rulecheck/rules.py` must keep matching DUO's notebook. `tests/test_notebook_parity.py` checks that. Unsure what a rule means? Ask the challenge owners.
 2. **DUO's notebook stays DUO's.** Only change `notebooks/BusinessRules.ipynb` in agreement with DUO.
 3. **No real data.** See the [Code of Conduct](CODE_OF_CONDUCT.md).
-4. **Language.** Documentation in this repo is English. DUO's notebook and original assignment description are in Dutch, and the Dutch challenge brief prevails over [CHALLENGE.md](CHALLENGE.md). Your pitch and explanation may be in Dutch or English.
+4. **Language.** Documentation in this repo is English. DUO's notebook is in Dutch, and the Dutch challenge brief prevails over [CHALLENGE.md](CHALLENGE.md). Your pitch and explanation may be in Dutch or English.
 
 ## Development workflow
 

@@ -65,8 +65,8 @@ A different order also changes the quality of the synthetic data. Measure that t
 Things we ran into while turning the notebook into rulecheck. rulecheck always follows the notebook.
 
 1. **Rule 2 uses the absolute difference.** The explanation printed by the notebook says 'age perpetrator - age victim', but the code uses the absolute value. The difference is never negative.
-2. **Rule 5 uses the literal values '(Step)Parent' and 'Other relative'.** DUO's assignment description speaks of 'step-parent or other family member'. The data does not say which way the relationship goes; the rule only looks at the value in the column.
-3. **Rule 6.2 uses lower case.** DUO's assignment description writes 'Bullets' and 'Ballistics'; the data has 'bullets' and 'ballistics'.
+2. **Rule 5 uses the literal values '(Step)Parent' and 'Other relative'.** DUO's original description of the rule speaks of 'step-parent or other family member'. The data does not say which way the relationship goes; the rule only looks at the value in the column.
+3. **Rule 6.2 uses lower case.** DUO's original description of the rule writes 'Bullets' and 'Ballistics'; the data has 'bullets' and 'ballistics'.
 4. **Rule 6.5 is not a constraint.** The notebook only checks that the three values occur. rulecheck does not count the rule.
 5. **The notebook stops at the first rule that fails.** Each check ends with an `assert`. On synthetic data from synthpop-py 1.0.0, the notebook already stops at rule 1. Use `python -m rulecheck` for an overview of all rules at once.
 

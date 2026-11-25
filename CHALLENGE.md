@@ -1,6 +1,6 @@
 # Challenge brief: Synthetic data rules! Business rules in synthpop-py
 
-*English working translation of the Dutch challenge brief (v1.0). The Dutch brief on Alkemio prevails.*
+*English working translation of the Dutch challenge brief (v1.0). The [Dutch brief](resources/OneGov3_Challenge_Brief_synthpop_py.pdf), also on [Alkemio](https://alkem.io/onegov-hackathon), prevails.*
 
 A synthesis model learns patterns from data, but not rules. That is how records arise that are statistically plausible but impossible in substance. Teams build, for synthpop-py (DUO's open source synthesis software), a way to enforce business rules during synthesis while preserving the quality of the data.
 
@@ -91,7 +91,7 @@ GovTechNL prepares a starter repository together with DUO: [github.com/govtechnl
 | [Issue #332: business rules](https://github.com/duonl/synthpop-py/issues/332) | Tips and implementation guidelines from the DUO team | Read this before you start. |
 | [R package synthpop](https://www.synthpop.org.uk/) | The original package, with restricted values and passive synthesis | Inspiration for how rules and derived columns work in synthpop. |
 | [Dutch Homicide Monitor](https://dutchhomicide.streamlit.app/) | Background on the original dataset | Context for the columns and values. |
-| GreenPT API (tech partner) | OpenAI-compatible API with credits per participant | Optional, for example to turn rules in plain language into code. |
+| GreenPT API (tech partner) | OpenAI-compatible API with credits per participant | Optional, for example to turn rules in plain language into code. See [docs/integrations/greenpt-api.md](docs/integrations/greenpt-api.md). |
 
 All data in the repository is synthetic. No real personal data goes through the challenge.
 
@@ -102,11 +102,13 @@ All data in the repository is synthetic. No real personal data goes through the 
 - A short explanation: your approach, how a data scientist adds a rule, and the assumptions and limitations.
 - The source code, published open source on GitHub: as a fork of synthpop-py or in your own repository.
 - A pitch (max. 3 minutes) and a pitch deck (max. 10 slides).
-- Your submission via Alkemio, with a link to the code.
+- Your submission via [Alkemio](https://alkem.io/onegov-hackathon), with a link to the code, before **Thursday 10 December 2026, 14:00**.
 
 ## Assessment criteria
 
 Teams are assessed by an expert jury with expertise in synthetic data and open source software development. Four levels:
+
+The criteria with IDs (M1 to M4, S1 to S4, X1 to X3, C1 to C4) are in [docs/judging-criteria.md](docs/judging-criteria.md).
 
 **✅ Must: minimum requirements for a valid submission**
 

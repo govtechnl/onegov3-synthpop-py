@@ -8,15 +8,18 @@ This repository holds the starter material for challenge 3 of **OneGov #3**, par
 - **Date:** 9-10 December 2026
 - **Location:** The Hague Tech, The Hague
 - **Challenge owners:** Cas van Erp and Erina Koomen (Team Synthetische Data, DUO)
-- **Tech partner:** GreenPT
+- **Tech partner:** [GreenPT](https://greenpt.nl/)
 - **Community, teams and submissions:** [alkem.io/onegov-hackathon](https://alkem.io/onegov-hackathon)
 - **Contact:** [hack@govtechnl.nl](mailto:hack@govtechnl.nl)
+- **Submission deadline:** Thursday 10 December 2026, 14:00, on [Alkemio](https://alkem.io/onegov-hackathon)
+- **Programme, prizes, judging and help:** [EVENT.md](EVENT.md)
+- **Organised by:** GovTechNL with Digicampus, The Hague Tech, VNG Realisatie, Provincie Zuid-Holland, Platform AI & Overheid and Gemeente Den Haag
 
 ## The challenge in one paragraph
 
-A synthesis model learns patterns from data, but not rules. That is how records arise that are statistically plausible but impossible in substance. With default settings, synthpop-py 1.0.0 breaks seven of the ten business rules that DUO wrote for this hackathon, and 71.9% of the synthetic rows break at least one rule. **How do we implement user-defined business rules in synthpop-py, so that synthetic data follows those rules during synthesis, while preserving statistical quality?**
+A synthesis model learns patterns from data, but not rules. That is how records arise that are statistically plausible but impossible in substance. With default settings, synthpop-py 1.0.0 breaks seven of the ten business rules that DUO wrote for this hackathon, and 72% of the synthetic rows break at least one rule. **How do we implement user-defined business rules in synthpop-py, so that synthetic data follows those rules during synthesis, while preserving statistical quality?**
 
-The full brief is in [CHALLENGE.md](CHALLENGE.md), an English working translation of the Dutch brief on Alkemio (the Dutch brief prevails). New teams start with [START_HERE.md](START_HERE.md).
+The full brief is in [CHALLENGE.md](CHALLENGE.md), an English working translation of the [Dutch brief](resources/OneGov3_Challenge_Brief_synthpop_py.pdf), also on Alkemio (the Dutch brief prevails). New teams start with [START_HERE.md](START_HERE.md).
 
 ## What's in here
 
@@ -27,13 +30,15 @@ The full brief is in [CHALLENGE.md](CHALLENGE.md), an English working translatio
 | [data/](data/) | DUO's dataset: a synthetic version of the Dutch Homicide Monitor with extra columns, plus a [data card](data/README.md) |
 | [docs/business-rules.md](docs/business-rules.md) | The business rules: exact definitions, missing values, and what the column order means for each rule |
 | [docs/baseline.md](docs/baseline.md) | How often synthpop-py 1.0.0 breaks the rules today |
-| [docs/duo-assignment.md](docs/duo-assignment.md) | DUO's assignment description (English working translation) |
+| [docs/judging-criteria.md](docs/judging-criteria.md) | The assessment criteria with IDs, and how judging works |
+| [docs/integrations/greenpt-api.md](docs/integrations/greenpt-api.md) | Optional LLM access through the tech partner GreenPT |
 | [notebooks/BusinessRules.ipynb](notebooks/BusinessRules.ipynb) | DUO's notebook with one check per rule |
 | [src/rulecheck/](src/rulecheck/) | The business rules as Python code, plus an evaluation of rules and quality |
 | [scripts/baseline.py](scripts/baseline.py) | Synthesises the dataset with default settings and measures rules and quality |
 | [scripts/evaluate.py](scripts/evaluate.py) | Puts your synthetic data next to the baseline |
 | [tests/](tests/) | Tests, including a check that rulecheck flags exactly the same rows as DUO's notebook |
-| [resources/](resources/) | Source material: DUO's original assignment description (Dutch) |
+| [resources/OneGov3_Challenge_Brief_synthpop_py.pdf](resources/OneGov3_Challenge_Brief_synthpop_py.pdf) | The Dutch challenge brief (v1.0, authoritative) |
+| [EVENT.md](EVENT.md) | Programme, deadline, judging, prizes and help, the same for all four OneGov #3 challenges |
 
 **Everything in this repository is synthetic.** No real people or cases. The business rules were made up by DUO for this hackathon and do not describe reality.
 
@@ -99,7 +104,7 @@ Own branches on DUO's repository are not possible: work in a **fork of [duonl/sy
 
 ## Submitting
 
-Submit via [Alkemio](https://alkem.io/onegov-hackathon), with a link to your code and your comparison with the baseline. Your code is open source and on GitHub, as a fork of synthpop-py or in your own repository. This repository only holds the starter material: do not put your solution here. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Submit via [Alkemio](https://alkem.io/onegov-hackathon) before **Thursday 10 December 2026, 14:00**, with a link to your code and your comparison with the baseline. Your code is open source and on GitHub, as a fork of synthpop-py or in your own repository. This repository only holds the starter material: do not put your solution here. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Handle the topic with care
 
@@ -110,7 +115,7 @@ The dataset is about homicides. Even though it is synthetic, handle it with care
 - **Code:** [EUPL-1.2](LICENSE), the same licence as synthpop-py.
 - **Data, documentation and challenge text:** CC BY 4.0, see [LICENSE-DATA](LICENSE-DATA).
 - **Dataset:** based on Krüsselmann, K., Achterberg, J., Haas, M., Spruit, M. & Liem, M. (2024). *Synthetic Dutch Homicide Monitor* [Data set]. Leiden University/LUMC. [doi.org/10.5281/zenodo.13378063](https://doi.org/10.5281/zenodo.13378063), CC BY 4.0. DUO added columns; see the [data card](data/README.md).
-- **Notebook and assignment description:** Team Synthetische Data, DUO.
+- **Notebook and business rules:** Team Synthetische Data, DUO.
 
 ## Contact
 
