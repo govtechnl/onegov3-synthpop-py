@@ -26,7 +26,7 @@ This page is the same in all four OneGov #3 challenge repositories. Challenge-sp
 
 ### Pre-hackathon: Thursday 26 November
 
-At The Hague Tech, and also to follow online. The challenge owners introduce their challenges (5 minutes each), then team matchmaking at one table per challenge, followed by drinks.
+16:00-17:00 at The Hague Tech, also to follow online. Walk-in from 15:45. The challenge owners introduce their challenges (5 minutes each), then team matchmaking at one table per challenge, followed by drinks from 17:00.
 
 ### Day 1: Wednesday 9 December
 
@@ -40,7 +40,6 @@ At The Hague Tech, and also to follow online. The challenge owners introduce the
 | 09:40 | Start hacking |
 | 12:00 | Lunch |
 | 13:30 | Midway check-in per challenge, with challenge owners and mentors (one room per challenge) |
-| 15:00 | Hack Safari: external guests visit the teams |
 | 17:00 | End of the official programme, optional hacking continues |
 | 20:00 | Venue closes |
 
@@ -50,6 +49,8 @@ At The Hague Tech, and also to follow online. The challenge owners introduce the
 |---|---|
 | 08:00 | Doors open, coffee |
 | 08:30 | Final hacking; mentors and partners walk around |
+| 10:00 | Side programme for external guests: panel on digital autonomy and how government can steer the market |
+| 11:00 | Hack Safari: external guests visit the teams in small groups, guided by Digicampus |
 | 11:30 | Lunch |
 | **14:00** | **Submission deadline in Alkemio** |
 | 14:00 | First round pitches per challenge; technical review of all submissions in Alkemio |
